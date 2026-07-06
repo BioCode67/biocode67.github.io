@@ -1,0 +1,12 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.biocode67.modoobom",
+      "sha256_cert_fingerprints": [
+        "6A:8F:E9:F8:CC:60:E9:BC:22:39:17:50:2F:5A:83:B8:74:B1:EE:98:B5:2D:01:29:1D:66:AF:95:6D:3F:88:04"
+      ]
+    }
+  }
+]
