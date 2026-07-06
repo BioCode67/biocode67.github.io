@@ -137,5 +137,11 @@
       2026 AI·SW중심대학 디지털 경진대회 · SW부문
     </footer>
   </div>
+  <script>
+    // 콜드스타트 완화 — 이 페이지를 여는 순간 백엔드(Render 무료·유휴 시 슬립)를 미리 깨운다.
+    // 심사위원이 이 랜딩을 읽는 동안 서버가 warm 되어, 실제 챗·분석에서 즉시 응답한다.
+    // fire-and-forget(no-cors), 실패는 무시(웹앱 자체는 서버 없이도 동작).
+    try { fetch('https://modoo-bom.onrender.com/api/health', { mode: 'no-cors', cache: 'no-store' }); } catch (e) {}
+  </script>
 </body>
 </html>
