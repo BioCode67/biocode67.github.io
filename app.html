@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>모두봄 — 지금 바로 써보기</title>
+<meta name="description" content="몰라서 못 받는 복지, AI가 대신 찾아드려요. 설치 없이 웹으로 바로, 또는 안드로이드 앱으로." />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" />
+<style>
+  :root{
+    --cream:#fffaf3; --paper:#ffffff; --ink:#14281d; --muted:#5c6b61; --faint:#8a978d;
+    --line:#e6ede7; --sprout:#16a34a; --sprout-deep:#15803d; --sprout-soft:#e8f6ec;
+    --sky:#0284c7; --sky-soft:#e6f3fb; --sun:#b45309; --sun-soft:#fdf3e0;
+    --font:'Pretendard Variable','Pretendard','Apple SD Gothic Neo','Malgun Gothic','맑은 고딕',system-ui,sans-serif;
+    --shadow:0 1px 2px rgba(20,40,29,.04), 0 12px 34px -14px rgba(20,40,29,.18);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:var(--font);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased;
+    background:
+      radial-gradient(1100px 560px at 12% -12%, #fff4e4 0%, transparent 60%),
+      radial-gradient(900px 620px at 108% 0%, #eafaee 0%, transparent 55%),
+      var(--cream);
+    min-height:100vh;padding:40px 18px 72px}
+  .wrap{max-width:940px;margin:0 auto}
+
+  header{text-align:center;margin-bottom:38px}
+  .brand{display:inline-flex;align-items:center;gap:12px;margin-bottom:16px}
+  .logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#22c55e,#15803d);
+    display:grid;place-items:center;font-size:27px;box-shadow:0 8px 22px -8px rgba(21,128,61,.5)}
+  .brand .name{font-size:1.9rem;font-weight:800;letter-spacing:-.02em}
+  h1{font-size:2.15rem;font-weight:800;letter-spacing:-.03em;line-height:1.22;text-wrap:balance;margin-bottom:10px}
+  h1 .em{color:var(--sprout-deep)}
+  .lead{color:var(--muted);font-size:1.05rem;max-width:56ch;margin:0 auto}
+
+  .cards{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:36px}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:30px 28px;
+    box-shadow:var(--shadow);position:relative;overflow:hidden;display:flex;flex-direction:column}
+  .card::before{content:"";position:absolute;inset:0 0 auto 0;height:5px;
+    background:linear-gradient(90deg,#22c55e,#0ea5e9)}
+  .card.apk::before{background:linear-gradient(90deg,#16a34a,#f59e0b)}
+  .tag{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.04em;padding:5px 12px;
+    border-radius:999px;background:var(--sprout-soft);color:var(--sprout-deep);margin-bottom:14px;align-self:flex-start}
+  .card.apk .tag{background:var(--sun-soft);color:var(--sun)}
+  .card h2{font-size:1.32rem;font-weight:800;letter-spacing:-.01em}
+  .card .desc{color:var(--muted);font-size:.94rem;margin-top:6px;min-height:44px}
+  .qr{margin:18px auto 6px;width:190px;height:190px;border-radius:16px;border:1px solid var(--line);
+    padding:12px;background:#fff}
+  .qr img{width:100%;height:100%;display:block;image-rendering:pixelated}
+  .qrhint{text-align:center;color:var(--faint);font-size:.8rem;margin-bottom:16px}
+  .btn{display:block;text-align:center;text-decoration:none;font-weight:800;font-size:1rem;
+    padding:15px 20px;border-radius:14px;color:#fff;background:var(--sprout-deep);
+    box-shadow:0 8px 20px -10px rgba(21,128,61,.6);transition:transform .06s ease}
+  .btn:hover{background:#166534} .btn:active{transform:translateY(1px)}
+  .card.apk .btn{background:var(--sun);box-shadow:0 8px 20px -10px rgba(180,83,9,.55)}
+  .card.apk .btn:hover{background:#92400e}
+  .steps{list-style:none;margin-top:16px;display:flex;flex-direction:column;gap:8px}
+  .steps li{display:flex;gap:9px;font-size:.86rem;color:var(--ink)}
+  .steps .n{flex:none;width:19px;height:19px;border-radius:6px;background:var(--sprout-soft);
+    color:var(--sprout-deep);font-size:.68rem;font-weight:800;display:grid;place-items:center;margin-top:2px}
+  .card.apk .steps .n{background:var(--sun-soft);color:var(--sun)}
+  .best{margin-top:auto;padding-top:16px;color:var(--faint);font-size:.8rem}
+
+  .why{margin-top:34px;background:var(--paper);border:1px solid var(--line);border-radius:18px;
+    padding:22px 26px;box-shadow:var(--shadow)}
+  .why h3{font-size:1.02rem;font-weight:800;margin-bottom:12px}
+  .why ul{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:10px 22px}
+  .why li{font-size:.9rem;color:var(--ink);display:flex;gap:8px}
+  .why li b{color:var(--sprout-deep)}
+  .why .ic{flex:none}
+
+  footer{margin-top:34px;text-align:center;color:var(--faint);font-size:.82rem;line-height:1.7}
+  footer a{color:var(--sprout-deep);font-weight:700;text-decoration:none}
+
+  @media (max-width:680px){
+    .cards{grid-template-columns:1fr}
+    .why ul{grid-template-columns:1fr}
+    h1{font-size:1.8rem}
+  }
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="logo">🌱</span><span class="name">모두봄</span></div>
+      <h1>몰라서 못 받던 복지,<br><span class="em">AI가 대신 찾아드려요</span></h1>
+      <p class="lead">나이·상황만 알려주면(또는 어떤 언어로든 한 문장이면) 전국 5,000여 복지에서
+        내게 맞는 혜택을 찾아 신청까지 안내합니다. 회원가입 없이, 개인정보는 내 기기에만.</p>
+    </header>
+
+    <div class="cards">
+      <!-- 웹 (무설치·권장) -->
+      <div class="card">
+        <span class="tag">가장 쉬움 · 설치 없음</span>
+        <h2>웹으로 바로 체험</h2>
+        <p class="desc">폰·PC 어디서든 링크만 열면 끝. 홈 화면에 추가하면 앱처럼 전체화면으로 실행돼요.</p>
+        <div class="qr"><img src="qr-web.png" alt="웹앱 QR 코드" /></div>
+        <p class="qrhint">📷 폰 카메라로 QR을 비추세요</p>
+        <a class="btn" href="https://biocode67.github.io/modoo-bom/">지금 바로 열기 →</a>
+        <ul class="steps">
+          <li><span class="n">1</span> 링크 열기 (모든 브라우저 지원)</li>
+          <li><span class="n">2</span> 상황 입력 또는 한 문장 말하기</li>
+          <li><span class="n">3</span> 맞춤 복지 확인 · 신청까지 안내</li>
+        </ul>
+        <p class="best">아이폰·안드로이드·PC 모두 동일하게 동작 — 심사·시연에 권장</p>
+      </div>
+
+      <!-- 안드로이드 앱 -->
+      <div class="card apk">
+        <span class="tag">안드로이드 · 네이티브 앱</span>
+        <h2>안드로이드 앱 설치</h2>
+        <p class="desc">주소창 없는 전체화면 앱. 서명된 정식 빌드(APK)를 바로 설치할 수 있어요.</p>
+        <div class="qr"><img src="qr-apk.png" alt="APK 다운로드 QR 코드" /></div>
+        <p class="qrhint">📷 안드로이드 폰으로 QR을 비추세요</p>
+        <a class="btn" href="modoobom.apk" download>APK 다운로드 (1.1MB)</a>
+        <ul class="steps">
+          <li><span class="n">1</span> APK 내려받기 → 파일 열기</li>
+          <li><span class="n">2</span> "이 출처 허용" 한 번 승인</li>
+          <li><span class="n">3</span> 🌱 모두봄 아이콘으로 실행</li>
+        </ul>
+        <p class="best">아이폰은 위 <b>웹으로 체험</b>에서 사파리 “홈 화면에 추가”로 설치돼요</p>
+      </div>
+    </div>
+
+    <div class="why">
+      <h3>🌟 무엇이 다른가요</h3>
+      <ul>
+        <li><span class="ic">🧠</span><span><b>온디바이스 다국어 AI</b> — 한·영·베트남어 등 뜻으로 검색</span></li>
+        <li><span class="ic">🔒</span><span><b>개인정보 서버 전송 0</b> — 전부 내 기기 안에서</span></li>
+        <li><span class="ic">📄</span><span><b>실제 정부 서류 자동발급</b> — 정부24 연동(PC)</span></li>
+        <li><span class="ic">💸</span><span><b>회원가입·비용 0</b> — 예상 금액까지 바로 계산</span></li>
+      </ul>
+    </div>
+
+    <footer>
+      라이브: <a href="https://biocode67.github.io/modoo-bom/">biocode67.github.io/modoo-bom</a><br>
+      정직성 원칙: 가짜 데이터 없음 · 본인인증·최종제출은 정부 공식 사이트에서 사용자가 직접(안전)<br>
+      2026 AI·SW중심대학 디지털 경진대회 · SW부문
+    </footer>
+  </div>
+</body>
+</html>
